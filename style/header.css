@@ -1,0 +1,59 @@
+/***********************************************
+            /** Stormy Header //*
+***********************************************/
+
+.header {
+    background-color: #039be5;
+    height: 85px;
+    margin:0px auto;
+}
+
+.content {
+}
+
+.stormy-logo {
+    width: 80px;
+    float: left;
+    padding: 2px 20px 20px 20px;
+}
+
+.stormy-title {
+    display: inline-block;
+    float: left;
+    padding: 0 0 0 10px;
+    text-align: center;
+    color: white;
+}
+
+.location-form {
+    padding: 28px 23px 23px;
+    float: right;
+    display: inline-block;
+}
+
+.input-group, .location-button {
+    height: 25px;
+}
+
+.input-group::-webkit-input-placeholder { /* WebKit browsers */
+    padding-left: 10px;
+ }
+
+.location-button {
+    height: 27px;
+    width: 30px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-right: 50px;
+    cursor: pointer;
+    border: #2654d0;
+    color: white;
+   background-color: #ffc107;
+}
+
+.input-group {
+    width: 200px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border: none;
+}
