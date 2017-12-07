@@ -11,20 +11,20 @@ class Header extends Component {
                     <h1 className="stormy-title">Stormy Web</h1>
                     <SearchBar class="search-container"/>
                     <div className="location-div">
-                        <h2 className="city">{this.props.weather}</h2>
+                        <h2 className="city">{}</h2>
                         <img className="place-icon" src="../../res/ic_place_white_48dp.png"/>
                     </div>
                 </div>
             </header>
         );
+        //this.props.weather
     }
 }
 
 function mapStateToProps({weather}) {
-    console.log(weather);
     return {
-        weather: weather.length === 0 ? 'Select a City' : weather[0].name
-    };
+        weather: !weather[0] ? 'Select a City' : weather
+};
 }
 
 export default connect(mapStateToProps)(Header);

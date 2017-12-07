@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import Current from "../containers/current";
-import Header from "../containers/Header";
-require('../../style/style.css');
-require('../../style/header.css');
+import Header from "../containers/header";
 
 export default class App extends Component {
     render() {
