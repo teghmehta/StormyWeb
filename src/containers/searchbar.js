@@ -11,9 +11,7 @@ class SearchBar extends Component {
         this.state = {lat: 0, long: 0, term: ''};
         this.onInputChange = this.onInputChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
-    }
 
-    componentDidMount() {
         if ("geolocation" in navigator) {
             let self = this;
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -21,10 +19,14 @@ class SearchBar extends Component {
                     lat: position.coords.latitude,
                     long: position.coords.longitude
                 });
+                self.props.fetchWeather(position.coords.latitude, position.coords.longitude, self.state.term);
             });
         } else {
             alert("Please allow location!");
         }
+    }
+
+    componentDidMount() {
     }
 
     onInputChange(event) {

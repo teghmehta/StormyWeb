@@ -2,14 +2,29 @@ import React, {Component} from 'react'
 import {connect} from "react-redux";
 
 class Daily extends Component {
+    renderWeather(dailyData) {
+        return (
+            <div key={dailyData.time} className= "current-container">
+                <h2 className="weather-condition">{Math.round((dailyData.temperatureHigh - 32) * 5/9) + " °C "} </h2>
+                <h2 className="temperature">{dailyData.summary}</h2>
+            </div>
+        );
+    }
 
     render() {
-        return(
-            <div className="current-container">
-                <h2 className="weather-condition">{this.props.condition}</h2>
-                <h2 className="temperature">{this.props.temp}</h2>
-            </div>
-        )
+        if (!this.props.data) {
+            return(
+                <div className="current-container">
+                    <h2 className="weather-condition">{"No Data"} </h2>
+                </div>
+            )
+        } else {
+            return(
+                <div className="current-container">
+                    {this.props.data.map(this.renderWeather)}
+                </div>
+            )
+        }
     }
 }
 
@@ -22,6 +37,7 @@ function mapStateToProps({weather}) {
         };
     } else {
         return {
+            data: weather[0].daily.data,
             temp: Math.round((weather[0].daily.data[0].temperatureHigh - 32) * 5/9) + " °C",
             condition: weather[0].daily.data[0].summary
         };
