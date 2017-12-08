@@ -12,21 +12,6 @@ class SearchBar extends Component {
         this.onInputChange = this.onInputChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
 
-        if ("geolocation" in navigator) {
-            let self = this;
-            navigator.geolocation.getCurrentPosition(function(position) {
-                self.setState({
-                    lat: position.coords.latitude,
-                    long: position.coords.longitude
-                });
-                self.props.fetchWeather(position.coords.latitude, position.coords.longitude, self.state.term);
-            });
-        } else {
-            alert("Please allow location!");
-        }
-    }
-
-    componentDidMount() {
     }
 
     onInputChange(event) {
