@@ -13,7 +13,7 @@ export default class Daily extends Component {
     renderWeather(dailyData) {
         return (
             <div key={dailyData.time} className="shadow-container">
-                <h2 className="temperature">{Math.round((dailyData.temperatureHigh - 32) * 5 / 9) + " °C "} </h2>
+                <h2 className="temperature">{Math.round(this.props.weather.currently.temperature) + " °C "} </h2>
                 <h2 className="weather-condition">{dailyData.summary}</h2>
             </div>
         );

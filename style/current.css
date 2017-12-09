@@ -1,15 +1,16 @@
 .shadow-container {
     text-align: center;
-    width: 50%;
+    width: 40%;
     height: 280px;
     margin: 15px auto;
-    -webkit-box-shadow:  2px 3px 4px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:    2px 3px 4px 2px #ccc; /* Firefox 3.5 - 3.6 */
+    -webkit-box-shadow:  2px 3px 4px 2px #ccc;
+    -moz-box-shadow:    2px 3px 4px 2px #ccc;
     box-shadow:         2px 3px 4px 2px #ccc;
     background-color: white;
 }
 
 .current-container {
+    position: relative;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -67,3 +68,19 @@
      left: 25px;
      top: -30px;
  }
+
+ .current-details {
+     position: absolute;
+     right: 20px;
+     bottom: 40px;
+ }
+
+
+th, td {
+    width: 73px;
+    padding: 10px 7px 2px 7px;
+}
+
+table { border: none; border-collapse: collapse; }
+table td, table th { border-left: 1px solid #afafaf; }
+table td:first-child, table th:first-child { border-left: none; }

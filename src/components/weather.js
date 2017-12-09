@@ -18,7 +18,7 @@ class Weather extends Component {
                     lat: position.coords.latitude,
                     long: position.coords.longitude
                 });
-                self.props.fetchWeather(position.coords.latitude, position.coords.longitude);
+                self.props.fetchWeather(position.coords.latitude, position.coords.longitude, "ca");
             });
         } else {
             alert("Please allow location!");

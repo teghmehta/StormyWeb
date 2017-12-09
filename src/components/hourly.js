@@ -13,7 +13,7 @@ export default class Hourly extends Component {
     renderWeather(hourlyData) {
         return (
             <div key={hourlyData.time} className="shadow-container">
-                <h2 className="temperature">{Math.round((hourlyData.temperature - 32) * 5 / 9) + " °C "} </h2>
+                <h2 className="temperature">{Math.round(this.props.weather.currently.temperature) + " °C "} </h2>
                 <h2 className="weather-condition">{hourlyData.summary}</h2>
             </div>
         );

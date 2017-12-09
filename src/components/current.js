@@ -22,7 +22,7 @@ export default class Current extends Component {
             case "partly-cloudy-day":
                 return "../../res/ic_partly_cloudy.png";
             case "partly-cloudy-night":
-                return "../../res/ic_partly_night.png";
+                return "../../res/ic_partly_cloudy_night.png";
 
         }
     }
@@ -36,12 +36,30 @@ export default class Current extends Component {
                     <img className="current-weather-icon" src={this.renderIcon(this.props.weather.currently.icon)} />
                     <div className="temp-container">
                         <h2 className="temperature current-temp">
-                            {Math.round((this.props.weather.currently.temperature - 32) * 5 / 9)}</h2>
+                            {Math.round(this.props.weather.currently.temperature)}</h2>
                         <h4 className="temp-unit">°C</h4>
                     </div>
                 </div>
-                <h2 className="short-term">{this.props.weather.hourly.summary.slice(0, -1) + " in Toronto." +
-                " Here you can expect the details of the weather currently."}</h2>
+                <table className="current-details">
+                    <tbody>
+                        <tr className="details-label">
+                            <th>Wind Speed</th>
+                            <th>Wind Gust</th>
+                            <th>Humidity</th>
+                            <th>P.O.P. </th>
+                            <th>Pressure</th>
+                        </tr>
+                        <tr className="details-value">
+                            <td>{Math.round(this.props.weather.currently.windSpeed) + " km/h"}</td>
+                            <td>{Math.round(this.props.weather.currently.windGust) + " km/h"}</td>
+                            <td>{100 * this.props.weather.currently.humidity + "%"}</td>
+                            <td>{Math.round(this.props.weather.currently.precipProbability)+"%"}</td>
+                            <td>{Math.round(this.props.weather.currently.pressure)}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                {/*<h2 className="short-term">{this.props.weather.hourly.summary.slice(0, -1) + " in Toronto." +*/}
+                {/*" Here you can expect the details of the weather currently."}</h2>*/}
             </div>
         )
     }
