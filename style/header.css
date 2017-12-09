@@ -4,12 +4,15 @@
 
 .header {
     background-color: #039be5;
-    height: 85px;
+    height: 65px;
     margin:0px auto;
+    -webkit-box-shadow: 2px 3px 3px 0px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    2px 3px 3px 0px #ccc; /* Firefox 3.5 - 3.6 */
+    box-shadow:         2px 3px 3px 0px #ccc;
 }
 
 .stormy-logo {
-    width: 80px;
+    width: 60px;
     float: left;
     padding: 2px 20px 20px 20px;
 }
@@ -20,11 +23,12 @@
     padding: 0 0 0 10px;
     text-align: center;
     color: white;
+    margin-top: 15px;
 }
 
 .location-form {
     float: right;
-    padding: 28px 23px 23px;
+    padding: 21px 23px 23px;
     display: inline-block;
 }
 
@@ -57,7 +61,7 @@
 }
 
 .place-icon {
-    width: 40px;
+    width: 34px;
     float: right;
     padding-top: 4px;
     padding-left: 5px;
@@ -67,9 +71,10 @@
     display: inline-block;
     color: white;
     border-radius: 20px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     float: right;
     padding-right: 15px;
+    margin-top: 12px;
 }
 
 .location-div {
@@ -77,8 +82,8 @@
     color: white;
     border-radius: 20px;
     background-color: #ffc107;
-    height: 50px;
+    height: 45px;
     float: right;
     padding: 0;
-    margin-top: 15px;
+    margin-top: 10px;
 }

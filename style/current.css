@@ -1,8 +1,69 @@
-.current-container {
+.shadow-container {
     text-align: center;
-    width: 70%;
-    margin: 0 auto;
-    -webkit-box-shadow: 2px 3px 3px 3px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:    2px 3px 3px 3px #ccc; /* Firefox 3.5 - 3.6 */
-    box-shadow:         2px 3px 3px 2px #ccc;
+    width: 50%;
+    height: 280px;
+    margin: 15px auto;
+    -webkit-box-shadow:  2px 3px 4px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    2px 3px 4px 2px #ccc; /* Firefox 3.5 - 3.6 */
+    box-shadow:         2px 3px 4px 2px #ccc;
+    background-color: white;
 }
+
+.current-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.current-weather-icon {
+    width: 150px;
+    float: left;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.temp-container {
+    display: inline-block;
+    float: left;
+    margin: -10px 20px 20px 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.current-temp {
+    font-family: Roboto Condensed, sans-serif;
+    font-size: 135px;
+    display: inline-block;
+    margin: 10px auto 10px auto;
+}
+
+.temp-unit {
+    display: inline-block;
+    padding-top: 10px;
+    float: right;
+    font-size: 1.25em;
+}
+
+
+.short-term {
+    width: 320px;
+    float: right;
+    display: inline-block;
+    text-align: left;
+}
+
+.current-city {
+    font-size: 42px;
+    text-align: left;
+    padding: 20px;
+    margin: 0px;
+}
+
+.current-temp-icon {
+    position: relative;
+}
+
+ .weather-condition {
+     position: absolute;
+     left: 25px;
+     top: -30px;
+ }

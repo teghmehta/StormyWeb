@@ -26,14 +26,19 @@ class Weather extends Component {
     }
 
     render() {
-        return(
-            <div>
-                <Header weather={this.props.weather}/>
-                <Current weather={this.props.weather}/>
-                <Hourly weather={this.props.weather}/>
-                <Daily weather={this.props.weather}/>
-            </div>
-        );
+        //Don't load until weather is fetched
+        if (!this.props.weather) {
+            return null;
+        } else {
+            return(
+                <div>
+                    <Header weather={this.props.weather}/>
+                    <Current weather={this.props.weather}/>
+                    {/*<Daily weather={this.props.weather}/>*/}
+                    {/*<Hourly weather={this.props.weather}/>*/}
+                </div>
+            );
+        }
     }
 }
 
