@@ -72,15 +72,18 @@
  .current-details {
      position: absolute;
      right: 20px;
-     bottom: 40px;
+     bottom: 20px;
  }
 
 
 th, td {
-    width: 73px;
-    padding: 10px 7px 2px 7px;
+    height: 30px;
+    width: 75px;
+    padding: 10px 7px 7px 7px;
 }
 
 table { border: none; border-collapse: collapse; }
-table td, table th { border-left: 1px solid #afafaf; }
-table td:first-child, table th:first-child { border-left: none; }
+table td, table th {
+    border-left: 1px solid #d8d8d8;
+}
+table td:first-child, table th:first-child { border-left: none;}

@@ -11,9 +11,14 @@ export default class Daily extends Component {
     }
 
     renderWeather(dailyData) {
+        let unit = this.props.weather.flags.units;
+        let unitText = " °C "
+        if (unit === "si") unitText = " °F ";
+        else unitText =  " °C ";
+
         return (
             <div key={dailyData.time} className="shadow-container">
-                <h2 className="temperature">{Math.round(this.props.weather.currently.temperature) + " °C "} </h2>
+                <h2 className="temperature">{Math.round(this.props.weather.currently.temperature) + unitText} </h2>
                 <h2 className="weather-condition">{dailyData.summary}</h2>
             </div>
         );

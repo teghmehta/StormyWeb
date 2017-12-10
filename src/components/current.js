@@ -28,6 +28,18 @@ export default class Current extends Component {
     }
 
     render() {
+        let unit = this.props.weather.flags.units;
+        let unitText = " °C ";
+        let windUnit = " km/h";
+        if (unit === "us") {
+            windUnit = " mph";
+            unitText = " °F ";
+        } else {
+            windUnit = " km/h";
+            unitText =  " °C ";
+        }
+
+
         return(
             <div className="shadow-container current-container">
                 <h2 className="current-city">Toronto, ON</h2>
@@ -37,23 +49,29 @@ export default class Current extends Component {
                     <div className="temp-container">
                         <h2 className="temperature current-temp">
                             {Math.round(this.props.weather.currently.temperature)}</h2>
-                        <h4 className="temp-unit">°C</h4>
+                        <h4 className="temp-unit">{unitText}</h4>
                     </div>
                 </div>
                 <table className="current-details">
                     <tbody>
-                        <tr className="details-label">
+                        <tr className="details">
                             <th>Wind Speed</th>
-                            <th>Wind Gust</th>
-                            <th>Humidity</th>
-                            <th>P.O.P. </th>
-                            <th>Pressure</th>
+                            <td>{Math.round(this.props.weather.currently.windSpeed) + windUnit}</td>
                         </tr>
-                        <tr className="details-value">
-                            <td>{Math.round(this.props.weather.currently.windSpeed) + " km/h"}</td>
-                            <td>{Math.round(this.props.weather.currently.windGust) + " km/h"}</td>
+                        <tr className="details">
+                            <th>Wind Gust</th>
+                            <td>{Math.round(this.props.weather.currently.windGust) + windUnit}</td>
+                        </tr>
+                        <tr className="details">
+                            <th>Humidity</th>
                             <td>{100 * this.props.weather.currently.humidity + "%"}</td>
+                        </tr>
+                        <tr className="details">
+                            <th>P.O.P. </th>
                             <td>{Math.round(this.props.weather.currently.precipProbability)+"%"}</td>
+                        </tr>
+                        <tr className="details-last">
+                            <th>Pressure</th>
                             <td>{Math.round(this.props.weather.currently.pressure)}</td>
                         </tr>
                     </tbody>

@@ -11,9 +11,14 @@ export default class Hourly extends Component {
     }
 
     renderWeather(hourlyData) {
+        let unit = this.props.weather.flags.units;
+        let unitText = " °C "
+        if (unit === "si") unitText = " °F ";
+        else unitText =  " °C ";
+
         return (
             <div key={hourlyData.time} className="shadow-container">
-                <h2 className="temperature">{Math.round(this.props.weather.currently.temperature) + " °C "} </h2>
+                <h2 className="temperature">{Math.round(this.props.weather.currently.temperature) + unitText} </h2>
                 <h2 className="weather-condition">{hourlyData.summary}</h2>
             </div>
         );

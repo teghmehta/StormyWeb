@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from "react-redux";
-import Current from "./current";
-import Hourly from "./hourly";
-import Daily from "./daily";
-import Header from "../containers/header";
+import Current from "../components/current";
+import Hourly from "../components/hourly";
+import Daily from "../components/daily";
+import Header from "./header";
 import {fetchWeather} from "../actions/index";
 import {bindActionCreators} from "redux";
 
@@ -18,7 +18,7 @@ class Weather extends Component {
                     lat: position.coords.latitude,
                     long: position.coords.longitude
                 });
-                self.props.fetchWeather(position.coords.latitude, position.coords.longitude, "ca");
+                self.props.fetchWeather(position.coords.latitude, position.coords.longitude, "auto");
             });
         } else {
             alert("Please allow location!");
@@ -32,7 +32,7 @@ class Weather extends Component {
         } else {
             return(
                 <div>
-                    <Header weather={this.props.weather}/>
+                    <Header lat={this.state.lat} long={this.state.long} weather={this.props.weather}/>
                     <Current weather={this.props.weather}/>
                     {/*<Daily weather={this.props.weather}/>*/}
                     {/*<Hourly weather={this.props.weather}/>*/}
