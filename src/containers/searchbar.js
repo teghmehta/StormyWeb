@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect } from 'react-redux'
 import {fetchWeather} from "../actions/index";
 import {bindActionCreators} from "redux";
+import Autocomplete from 'react-google-autocomplete';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class SearchBar extends Component {
         //term is the input
         this.state = {lat: 0, long: 0, term: ''};
         this.onInputChange = this.onInputChange.bind(this);
-        this.onFormSubmit = this.onFormSubmit.bind(this);
+        this.onPlaceSelected = this.onPlaceSelected.bind(this);
 
     }
 
@@ -18,22 +19,23 @@ class SearchBar extends Component {
         this.setState({term: event.target.value});
     }
 
-    onFormSubmit(event) {
-        event.preventDefault();
-        this.props.fetchWeather(this.state.lat, this.state.long);
+    onPlaceSelected(place) {
+        console.log(place);
+        var lat = place.geometry.viewport.f.f
+        var long = place.geometry.viewport.b.b
+        var city = place.name + ", " + place.address_components[2].shortName
+        console.log (lat, long);
+        this.props.fetchWeather(lat, long, this.props.unit, city);
         this.setState({term: ''});
     }
 
     render() {
         return(
-            <form className="location-form" onSubmit={this.onFormSubmit}>
-                <input
-                className="input-group"
-                placeholder="Enter a location"
-                value={this.state.term}
-                onChange={this.onInputChange}/>
-                <button className="location-button" type="submit">Submit</button>
-            </form>
+            <Autocomplete
+                className="location-form"
+                onPlaceSelected={this.onPlaceSelected}
+                types={['(regions)']}
+            />
         );
     }
 }

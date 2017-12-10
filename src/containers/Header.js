@@ -17,21 +17,25 @@ class Header extends Component {
     }
 
     onCel() {
-        this.props.fetchWeather(this.props.lat, this.props.long, "ca");
+        this.state = {unit: "ca"};
+        this.props.fetchWeather(this.props.lat, this.props.long, this.state.unit);
     }
 
     onFah() {
-        this.props.fetchWeather(this.props.lat, this.props.long, "us");
+        this.state = {unit: "us"};
+        this.props.fetchWeather(this.props.lat, this.props.long, this.state.unit);
     }
 
     render() {
         var location = !this.props.weather ? 'Select a City' : "Using GPS";
+        console.log(this.props.weather);
         return(
             <header className="header">
                 <div className='content'>
                     <img className="stormy-logo" src="../../res/stormy_icon.png "/>
                     <h1 className="stormy-title">Stormy Web</h1>
-                    <SearchBar class="search-container"/>
+
+                    <SearchBar unit={this.state.unit} class="search-container"/>
                     <div className="location-div">
                         <h2 className="city">{location}</h2>
                         <img className="place-icon" src="../../res/ic_place_white_48dp.png"/>

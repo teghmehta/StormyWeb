@@ -5,10 +5,10 @@ const ROOT_URL = `https://api.darksky.net/forecast/`
 const UNITS = "?units="
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 
-export function fetchWeather(lat, long, unit) {
+export function fetchWeather(lat, long, unit, city) {
     const url = ROOT_URL + API_KEY + lat + "," + long + UNITS + unit
     const request = axios.get(url)
-
+    // request[0].city = "Toronto";
     return{
         type: FETCH_WEATHER,
         payload: request
