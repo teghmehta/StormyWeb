@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 
 export default class Daily extends Component {
+    constructor(props) {
+        super(props);
+        this.renderWeather= this.renderWeather.bind(this);
+    }
+
     render() {
+        console.log(this.props)
         return (
             <div className="shadow-container">
                 <h1 className="title">Daily</h1>
@@ -18,8 +24,8 @@ export default class Daily extends Component {
 
         return (
             <div key={dailyData.time} className="shadow-container">
-                <h2 className="temperature">{Math.round(this.props.weather.currently.temperature) + unitText} </h2>
-                <h2 className="weather-condition">{dailyData.summary}</h2>
+                <h2 className="temperature">{Math.round(dailyData.temperatureHigh) + unitText} </h2>
+                {/*<h2 className="weather-condition">{dailyData.summary}</h2>*/}
             </div>
         );
     }

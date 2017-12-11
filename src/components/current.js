@@ -27,6 +27,25 @@ export default class Current extends Component {
         }
     }
 
+    renderCity(city) {
+        if (typeof city === 'string') {
+            return city;
+        }
+
+        let locality = city.results[0].address_components[3].short_name;
+        let state = city.results[1].address_components[2].short_name;
+        let country = city.results[1].address_components[3].short_name;
+        let cityToReturn = locality+", " + state;
+
+        if (locality === undefined) {
+            locality = city.results[1].address_components[0].long_name;
+            if (locality === undefined) {
+                cityToReturn = "Somewhere in " + state + ", " + country;
+            }
+        }
+        return cityToReturn;
+    }
+
     render() {
         let unit = this.props.weather.flags.units;
         let unitText = " °C ";
@@ -42,7 +61,7 @@ export default class Current extends Component {
 
         return(
             <div className="shadow-container current-container">
-                <h2 className="current-city">Toronto, ON</h2>
+                <h2 className="current-city">{this.renderCity(this.props.city)}</h2>
                 <div className="current-temp-icon">
                     <h2 className="weather-condition">{this.props.weather.currently.summary}</h2>
                     <img className="current-weather-icon" src={this.renderIcon(this.props.weather.currently.icon)} />

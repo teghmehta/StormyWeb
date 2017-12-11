@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect } from 'react-redux'
 import {fetchWeather} from "../actions/index";
 import {bindActionCreators} from "redux";
+import {getCity} from "../actions/city_name";
 import Autocomplete from 'react-google-autocomplete';
 
 class SearchBar extends Component {
@@ -19,13 +20,20 @@ class SearchBar extends Component {
         this.setState({term: event.target.value});
     }
 
+    renderCity(place) {
+        if (place.address_components.length < 3) return place.formatted_address;
+        else {
+            let splitAddress = place.formatted_address.split(',');
+            return splitAddress[0] + ', ' + splitAddress[1];
+        }
+    }
+
     onPlaceSelected(place) {
-        console.log(place);
         var lat = place.geometry.viewport.f.f
         var long = place.geometry.viewport.b.b
-        var city = place.name + ", " + place.address_components[2].shortName
-        console.log (lat, long);
-        this.props.fetchWeather(lat, long, this.props.unit, city);
+        var city = this.renderCity(place);
+        this.props.fetchWeather(lat, long, this.props.unit);
+        this.props.getCity(null, null, city)
         this.setState({term: ''});
     }
 
@@ -41,7 +49,7 @@ class SearchBar extends Component {
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({fetchWeather}, dispatch);
+    return bindActionCreators({fetchWeather, getCity}, dispatch);
 }
 
 export default connect(null, matchDispatchToProps)(SearchBar)

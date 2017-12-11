@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 
 export default class Hourly extends Component {
+    constructor(props) {
+        super(props);
+        this.renderWeather= this.renderWeather.bind(this);
+    }
+
     render() {
         return (
             <div className="shadow-container">
@@ -18,8 +23,8 @@ export default class Hourly extends Component {
 
         return (
             <div key={hourlyData.time} className="shadow-container">
-                <h2 className="temperature">{Math.round(this.props.weather.currently.temperature) + unitText} </h2>
-                <h2 className="weather-condition">{hourlyData.summary}</h2>
+                <h2 className="temperature">{Math.round(hourlyData.temperature) + unitText} </h2>
+                {/*<h2 className="weather-condition">{hourlyData.summary}</h2>*/}
             </div>
         );
     }
