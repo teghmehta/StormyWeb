@@ -6,6 +6,7 @@
     -moz-box-shadow:    2px 3px 4px 2px #ccc;
     box-shadow:         2px 3px 4px 2px #ccc;
     background-color: white;
+    padding: 5px 0px;
 }
 
 .current-container {
@@ -13,6 +14,7 @@
     padding-left: 20px;
     padding-right: 20px;
     height: 280px;
+    width: calc(40% - 40px);
 }
 
 .current-weather-icon {

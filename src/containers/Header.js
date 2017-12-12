@@ -3,6 +3,7 @@ import SearchBar from './searchbar';
 import {connect } from 'react-redux'
 import {fetchWeather} from "../actions/index";
 import {bindActionCreators} from "redux";
+import {getCity} from "../actions/city_name";
 
 class Header extends Component {
 
@@ -13,6 +14,7 @@ class Header extends Component {
         this.state = {unit: "ca"};
         this.onCel = this.onCel.bind(this);
         this.onFah = this.onFah.bind(this);
+        this.onLocationClick = this.onLocationClick.bind(this);
 
     }
 
@@ -26,8 +28,12 @@ class Header extends Component {
         this.props.fetchWeather(this.props.lat, this.props.long, this.state.unit);
     }
 
+    onLocationClick() {
+        this.props.fetchWeather(this.props.lat, this.props.long, this.state.unit);
+        this.props.getCity(this.props.lat, this.props.long, null);
+    }
+
     render() {
-        var location = !this.props.weather ? 'Select a City' : "Using GPS";
         return(
             <header className="header">
                 <div className='content'>
@@ -35,10 +41,9 @@ class Header extends Component {
                     <h1 className="stormy-title">Stormy Web</h1>
 
                     <SearchBar city={this.props.city} unit={this.state.unit} class="search-container"/>
-                    <div className="location-div">
-                        <h2 className="city">{location}</h2>
+                    <button onClick={this.onLocationClick} className="location-div">
                         <img className="place-icon" src="../../res/ic_place_white_48dp.png"/>
-                    </div>
+                    </button>
 
                     <form className="form">
                         <div className="switch-field">
@@ -57,7 +62,7 @@ class Header extends Component {
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({fetchWeather}, dispatch);
+    return bindActionCreators({fetchWeather, getCity}, dispatch);
 }
 
 export default connect(null, matchDispatchToProps)(Header)

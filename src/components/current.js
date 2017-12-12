@@ -83,7 +83,7 @@ export default class Current extends Component {
                         </tr>
                         <tr className="details">
                             <th>Humidity</th>
-                            <td>{100 * this.props.weather.currently.humidity + "%"}</td>
+                            <td>{Math.round(100 * this.props.weather.currently.humidity) + "%"}</td>
                         </tr>
                         <tr className="details">
                             <th>P.O.P. </th>

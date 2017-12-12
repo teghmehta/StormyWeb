@@ -11,7 +11,10 @@ import {bindActionCreators} from "redux";
 class Weather extends Component {
     constructor(props) {
         super(props)
+        this.findLocation();
+    }
 
+    findLocation() {
         if ("geolocation" in navigator) {
             let self = this;
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -34,7 +37,9 @@ class Weather extends Component {
         } else {
             return(
                 <div>
-                    <Header lat={this.state.lat} long={this.state.long} city={this.props.city} weather={this.props.weather}/>
+                    <Header lat={this.state.lat} long={this.state.long}
+                            city={this.props.city} weather={this.props.weather}
+                            onLocationClick={this.findLocation}/>
                     <Current city={this.props.city} weather={this.props.weather}/>
                     <Daily weather={this.props.weather}/>
                     <Hourly weather={this.props.weather}/>

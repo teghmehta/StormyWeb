@@ -40,7 +40,7 @@ class SearchBar extends Component {
     render() {
         return(
             <Autocomplete
-                className="location-form"
+                className="autocomplete"
                 onPlaceSelected={this.onPlaceSelected}
                 types={['(regions)']}
             />
