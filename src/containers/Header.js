@@ -4,6 +4,7 @@ import {connect } from 'react-redux'
 import {fetchWeather} from "../actions/index";
 import {bindActionCreators} from "redux";
 import {getCity} from "../actions/city_name";
+import LocationDropDown from "../components/locationdropdown";
 
 class Header extends Component {
 
@@ -11,10 +12,15 @@ class Header extends Component {
         super(props);
 
         //term is the input
-        this.state = {unit: "ca"};
+        this.state = {
+            showDropDown: false,
+            unit: "ca"
+
+        }
         this.onCel = this.onCel.bind(this);
         this.onFah = this.onFah.bind(this);
         this.onLocationClick = this.onLocationClick.bind(this);
+        this.showLocations = this.showLocations.bind(this);
 
     }
 
@@ -33,10 +39,26 @@ class Header extends Component {
         this.props.getCity(this.props.lat, this.props.long, null);
     }
 
+    showLocations() {
+        let locState;
+        if (this.state.showDropDown) {
+            locState = false
+        } else {
+            locState = true
+        }
+
+        this.setState ({showDropDown: locState})
+    }
+
     render() {
         return(
             <header className="header">
+                {/*{ this.state.showDropDown ? <LocationDropDown className="location-drop"/> : null }*/}
                 <div className='content'>
+                    <button onClick={this.showLocations} className="more-button">
+                        <img className="more-icon" src="../../res/ic_more_vert_white_48dp.png"/>
+                    </button>
+
                     <img className="stormy-logo" src="../../res/stormy_icon.png "/>
                     <h1 className="stormy-title">Stormy Web</h1>
 

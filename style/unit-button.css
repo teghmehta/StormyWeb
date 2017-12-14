@@ -1,6 +1,7 @@
 .switch-field {
     float:right;
     padding: 18px 30px 5px 10px;
+    display: inline-block;
 }
 
 .switch-title {
