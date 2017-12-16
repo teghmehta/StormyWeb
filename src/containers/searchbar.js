@@ -16,6 +16,7 @@ class SearchBar extends Component {
 
     }
 
+
     onInputChange(event) {
         this.setState({term: event.target.value});
     }
@@ -35,6 +36,14 @@ class SearchBar extends Component {
         this.props.fetchWeather(lat, long, this.props.unit);
         this.props.getCity(null, null, city)
         this.setState({term: ''});
+
+        const store = {
+            cityName: city,
+            lat: lat,
+            long: long
+        }
+
+        this.props.createStore(store)
     }
 
     render() {

@@ -6,8 +6,15 @@
  */
 
 
+
+@keyframes slideInFromLeft {
+    from { opacity: 0}
+    to   { opacity: 1}
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin:0px;
     background-color: #f4f5f7;
+    animation: slideInFromLeft 1s;
 }

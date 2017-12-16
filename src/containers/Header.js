@@ -5,13 +5,13 @@ import {fetchWeather} from "../actions/index";
 import {bindActionCreators} from "redux";
 import {getCity} from "../actions/city_name";
 import LocationDropDown from "../components/locationdropdown";
+var store = require('store');
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
 
-        //term is the input
         this.state = {
             showDropDown: false,
             unit: "ca"
@@ -21,6 +21,7 @@ class Header extends Component {
         this.onFah = this.onFah.bind(this);
         this.onLocationClick = this.onLocationClick.bind(this);
         this.showLocations = this.showLocations.bind(this);
+        this.createStore = this.createStore.bind(this);
 
     }
 
@@ -50,19 +51,36 @@ class Header extends Component {
         this.setState ({showDropDown: locState})
     }
 
+    createStore(cityStoreProps) {
+        store.set(cityStoreProps.cityName, {lat: cityStoreProps.lat, long: cityStoreProps.long});
+        console.log(cityStoreProps);
+    }
+
+    getStore() {
+        const locations = [];
+
+        store.each(function(value, key) {
+            locations.push({key, value})
+        });
+        console.log(locations, "getsotre")
+        return locations;
+    }
+
+    removeStore(key) {
+        store.remove(key)
+    }
+
     render() {
         return(
             <header className="header">
-                {/*{ this.state.showDropDown ? <LocationDropDown className="location-drop"/> : null }*/}
                 <div className='content'>
-                    <button onClick={this.showLocations} className="more-button">
-                        <img className="more-icon" src="../../res/ic_more_vert_white_48dp.png"/>
-                    </button>
+
+                    <LocationDropDown locations={this.getStore()} className="location-drop"/>
 
                     <img className="stormy-logo" src="../../res/stormy_icon.png "/>
                     <h1 className="stormy-title">Stormy Web</h1>
 
-                    <SearchBar city={this.props.city} unit={this.state.unit} class="search-container"/>
+                    <SearchBar createStore={this.createStore} city={this.props.city} unit={this.state.unit} class="search-container"/>
                     <button onClick={this.onLocationClick} className="location-div">
                         <img className="place-icon" src="../../res/ic_place_white_48dp.png"/>
                     </button>

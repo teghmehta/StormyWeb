@@ -37,7 +37,8 @@ class Weather extends Component {
         } else {
             return(
                 <div>
-                    <Header lat={this.state.lat} long={this.state.long}
+                    <Header
+                            lat={this.state.lat} long={this.state.long}
                             city={this.props.city} weather={this.props.weather}
                             onLocationClick={this.findLocation}/>
                     <Current city={this.props.city} weather={this.props.weather}/>
