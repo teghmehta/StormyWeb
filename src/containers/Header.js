@@ -6,7 +6,8 @@ import {bindActionCreators} from "redux";
 import {getCity} from "../actions/city_name";
 import LocationDropDown from "../components/locationdropdown";
 var store = require('store');
-
+export const SELECTED = "SELECTED";
+const FOLLOW_ME = "FOLLOW_ME"
 class Header extends Component {
 
     constructor(props) {
@@ -14,14 +15,17 @@ class Header extends Component {
 
         this.state = {
             showDropDown: false,
-            unit: "ca"
-
+            unit: "ca",
+            shouldUpdate: ""
         }
         this.onCel = this.onCel.bind(this);
         this.onFah = this.onFah.bind(this);
         this.onLocationClick = this.onLocationClick.bind(this);
         this.showLocations = this.showLocations.bind(this);
         this.createStore = this.createStore.bind(this);
+        this.removeStore = this.removeStore.bind(this);
+        this.onLocationClick = this.onLocationClick.bind(this);
+        this.onSelectLocation = this.onSelectLocation.bind(this);
 
     }
 
@@ -53,7 +57,6 @@ class Header extends Component {
 
     createStore(cityStoreProps) {
         store.set(cityStoreProps.cityName, {lat: cityStoreProps.lat, long: cityStoreProps.long});
-        console.log(cityStoreProps);
     }
 
     getStore() {
@@ -62,12 +65,26 @@ class Header extends Component {
         store.each(function(value, key) {
             locations.push({key, value})
         });
-        console.log(locations, "getsotre")
         return locations;
     }
 
-    removeStore(key) {
-        store.remove(key)
+    removeStore(key, location) {
+        store.remove(key);
+        console.log("rerender");
+        this.setState({shouldUpdate: key}); // can remove this after location set
+        // this.onSelectLocation(location);
+    }
+
+    onSelectLocation(value) {
+        console.log(value)
+        if (!value) {
+            // store.set(SELECTED, FOLLOW_ME);
+            this.onLocationClick();
+        } else {
+            // // store.set(SELECTED, location);
+            this.props.fetchWeather(value.value.lat, value.value.long, this.state.unit);
+            this.props.getCity(null, null, value.key);
+        }
     }
 
     render() {
@@ -75,7 +92,7 @@ class Header extends Component {
             <header className="header">
                 <div className='content'>
 
-                    <LocationDropDown locations={this.getStore()} className="location-drop"/>
+                    <LocationDropDown removeStore={this.removeStore} onSelectLocation={this.onSelectLocation} locations={this.getStore()} className="location-drop"/>
 
                     <img className="stormy-logo" src="../../res/stormy_icon.png "/>
                     <h1 className="stormy-title">Stormy Web</h1>

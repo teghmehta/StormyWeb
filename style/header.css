@@ -49,13 +49,6 @@
     padding: 4px 4px 4px;
 }
 
-.drop-place-icon {
-    width: 25px;
-    float: right;
-    background-color: #ffc107;
-    border-radius: 40px;
-}
-
 .city {
     display: inline-block;
     color: white;
@@ -75,4 +68,24 @@
     float: right;
     padding: 0;
     margin-top: 10px;
+}
+
+/***********************************************
+            /** Drop Down //*
+***********************************************/
+
+
+.drop-place-icon {
+    width: 25px;
+    float: right;
+    background-color: #ffc107;
+    border-radius: 40px;
+}
+
+.delete-button {
+    display: inline-block;
+    float: right;
+    margin-top: 8px;
+    color:white;
+    background: #ffc107;
 }
