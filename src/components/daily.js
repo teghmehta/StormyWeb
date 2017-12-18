@@ -7,7 +7,6 @@ export default class Daily extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="shadow-container">
                 <h1 className="title">Daily</h1>

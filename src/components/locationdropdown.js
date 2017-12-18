@@ -12,10 +12,7 @@ export default class LocationDropDown extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (event, index, value) => {
-        this.setState({index});
-        // this.props.onSelectLocation(value);
-    };
+    handleChange = (event, index, value) =>  this.setState({index});
 
     renderItems(location, index) {
         let city = location.key;
@@ -23,9 +20,32 @@ export default class LocationDropDown extends Component {
         if (index != 0 && city != SELECTED) {
             return (
                 <MenuItem key={index+1} value={index} onClick={() => this.props.onSelectLocation(location)} primaryText={city}> <button onClick={() =>
-                    this.props.removeStore(city, location)} className="delete-button">Delete</button></MenuItem>
+                    this.props.removeStore(city)} className="delete-button">Delete</button></MenuItem>
             );
         }
+    }
+
+    changeIndex(key) {
+        this.forceUpdate();
+        let index;
+        if (!key) {
+            index = 0;
+        } else {
+            for (let i = 0; i < this.props.locations.length; i++) {
+                if (this.props.locations[i].key === key) {
+                    index = i;
+                }
+            }
+        }
+
+        console.log(index, key, this.props.locations, "changeIndex");
+        this.setState({value: index, index: index});
+    }
+
+    followMe() {
+        this.forceUpdate();
+        console.log(this.props.locations, "followMe()");
+        this.setState({value: 0, index: 0});
     }
 
     render() {

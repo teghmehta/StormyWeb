@@ -33,14 +33,16 @@ class SearchBar extends Component {
         var lat = place.geometry.viewport.f.f
         var long = place.geometry.viewport.b.b
         var city = this.renderCity(place);
-        this.props.fetchWeather(lat, long, this.props.unit);
-        this.props.getCity(null, null, city)
+        // this.props.fetchWeather(lat, long, this.props.unit);
+        // this.props.getCity(null, null, city);
         this.setState({term: ''});
 
         const store = {
-            cityName: city,
-            lat: lat,
-            long: long
+            key: city,
+            value: {
+                lat: lat,
+                long: long
+            }
         }
 
         this.props.createStore(store)

@@ -42,6 +42,7 @@ class Header extends Component {
     onLocationClick() {
         this.props.fetchWeather(this.props.lat, this.props.long, this.state.unit);
         this.props.getCity(this.props.lat, this.props.long, null);
+        this.refs.child.changeIndex(null);
     }
 
     showLocations() {
@@ -56,7 +57,8 @@ class Header extends Component {
     }
 
     createStore(cityStoreProps) {
-        store.set(cityStoreProps.cityName, {lat: cityStoreProps.lat, long: cityStoreProps.long});
+        store.set(cityStoreProps.key, {lat: cityStoreProps.value.lat, long: cityStoreProps.value.long});
+        this.onSelectLocation(cityStoreProps);
     }
 
     getStore() {
@@ -68,22 +70,25 @@ class Header extends Component {
         return locations;
     }
 
-    removeStore(key, location) {
+    removeStore(key) {
         store.remove(key);
-        console.log("rerender");
-        this.setState({shouldUpdate: key}); // can remove this after location set
-        // this.onSelectLocation(location);
+        this.forceUpdate(); // can remove this after location set");
+        console.log(this.getStore(), "oSL");
+        this.refs.child.followMe();
     }
 
     onSelectLocation(value) {
-        console.log(value)
+        console.log(value, "oSL");
         if (!value) {
             // store.set(SELECTED, FOLLOW_ME);
             this.onLocationClick();
+            this.refs.child.changeIndex(null);
         } else {
             // // store.set(SELECTED, location);
             this.props.fetchWeather(value.value.lat, value.value.long, this.state.unit);
             this.props.getCity(null, null, value.key);
+            this.refs.child.changeIndex(value.key);
+
         }
     }
 
@@ -92,7 +97,7 @@ class Header extends Component {
             <header className="header">
                 <div className='content'>
 
-                    <LocationDropDown removeStore={this.removeStore} onSelectLocation={this.onSelectLocation} locations={this.getStore()} className="location-drop"/>
+                    <LocationDropDown ref="child" removeStore={this.removeStore} onSelectLocation={this.onSelectLocation} getStore={this.getStore()} locations={this.getStore()} className="location-drop"/>
 
                     <img className="stormy-logo" src="../../res/stormy_icon.png "/>
                     <h1 className="stormy-title">Stormy Web</h1>
