@@ -7,7 +7,7 @@ import {getCity} from "../actions/city_name";
 import LocationDropDown from "../components/locationdropdown";
 var store = require('store');
 export const SELECTED = "SELECTED";
-const FOLLOW_ME = "FOLLOW_ME"
+const FOLLOW_ME = "FOLLOW_ME";
 class Header extends Component {
 
     constructor(props) {
@@ -16,7 +16,7 @@ class Header extends Component {
         this.state = {
             showDropDown: false,
             unit: "ca",
-            shouldUpdate: ""
+            shouldCallSelectLocation: true,
         }
         this.onCel = this.onCel.bind(this);
         this.onFah = this.onFah.bind(this);
@@ -57,6 +57,7 @@ class Header extends Component {
     }
 
     createStore(cityStoreProps) {
+        this.setState({shouldCallSelectLocation: true});
         store.set(cityStoreProps.key, {lat: cityStoreProps.value.lat, long: cityStoreProps.value.long});
         this.onSelectLocation(cityStoreProps);
     }
@@ -71,24 +72,28 @@ class Header extends Component {
     }
 
     removeStore(key) {
-        store.remove(key);
-        this.forceUpdate(); // can remove this after location set");
-        console.log(this.getStore(), "oSL");
-        this.refs.child.followMe();
+        store.remove(key);// can remove this after location set");
+        this.setState({shouldCallSelectLocation: false},() => {
+            this.refs.child.followMe();
+            this.onLocationClick();
+        });
     }
 
     onSelectLocation(value) {
-        console.log(value, "oSL");
-        if (!value) {
-            // store.set(SELECTED, FOLLOW_ME);
-            this.onLocationClick();
-            this.refs.child.changeIndex(null);
-        } else {
-            // // store.set(SELECTED, location);
-            this.props.fetchWeather(value.value.lat, value.value.long, this.state.unit);
-            this.props.getCity(null, null, value.key);
-            this.refs.child.changeIndex(value.key);
+        console.log(this.state.shouldCallSelectLocation, "oSL");
+        if (this.state.shouldCallSelectLocation) {
+            console.log(value, "oSL");
+            if (!value) {
+                // store.set(SELECTED, FOLLOW_ME);
+                this.onLocationClick();
+                this.refs.child.changeIndex(null);
+            } else {
+                // // store.set(SELECTED, location);
+                this.props.fetchWeather(value.value.lat, value.value.long, this.state.unit);
+                this.props.getCity(null, null, value.key);
+                this.refs.child.changeIndex(value.key);
 
+            }
         }
     }
 

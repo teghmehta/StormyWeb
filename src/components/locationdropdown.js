@@ -14,10 +14,11 @@ export default class LocationDropDown extends Component {
 
     handleChange = (event, index, value) =>  this.setState({index});
 
+
     renderItems(location, index) {
         let city = location.key;
 
-        if (index != 0 && city != SELECTED) {
+        if (index !== 0 && city !== SELECTED) {
             return (
                 <MenuItem key={index+1} value={index} onClick={() => this.props.onSelectLocation(location)} primaryText={city}> <button onClick={() =>
                     this.props.removeStore(city)} className="delete-button">Delete</button></MenuItem>
@@ -26,7 +27,6 @@ export default class LocationDropDown extends Component {
     }
 
     changeIndex(key) {
-        this.forceUpdate();
         let index;
         if (!key) {
             index = 0;
@@ -43,23 +43,26 @@ export default class LocationDropDown extends Component {
     }
 
     followMe() {
-        this.forceUpdate();
-        console.log(this.props.locations, "followMe()");
         this.setState({value: 0, index: 0});
     }
+
+    // onSelectLocation(location) {
+    //     if (this.state.shouldRunClick) {
+    //         this.props.onSelectLocation(null);
+    //     }
+    // }
 
     render() {
         const itemStyle = {
             color: '#ffc107'
-        }
+        };
 
         const style = {
             color: 'white',
-        }
-
+        };
         const menuStyle = {
             width: "300px"
-        }
+        };
 
         return (
             <DropDownMenu autoWidth={false}

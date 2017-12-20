@@ -54,6 +54,8 @@ class SearchBar extends Component {
                 className="autocomplete"
                 onPlaceSelected={this.onPlaceSelected}
                 types={['(regions)']}
+                value={this.state.term}
+                onChange={this.onInputChange}
             />
         );
     }
