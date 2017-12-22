@@ -12,7 +12,7 @@ export default class LocationDropDown extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (event, index, value) =>  this.setState({index});
+    handleChange = (event, index) =>  this.setState({index});
 
 
     renderItems(location, index) {
@@ -45,12 +45,6 @@ export default class LocationDropDown extends Component {
     followMe() {
         this.setState({value: 0, index: 0});
     }
-
-    // onSelectLocation(location) {
-    //     if (this.state.shouldRunClick) {
-    //         this.props.onSelectLocation(null);
-    //     }
-    // }
 
     render() {
         const itemStyle = {

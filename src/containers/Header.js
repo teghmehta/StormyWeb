@@ -84,11 +84,11 @@ class Header extends Component {
         if (this.state.shouldCallSelectLocation) {
             console.log(value, "oSL");
             if (!value) {
-                // store.set(SELECTED, FOLLOW_ME);
+                // here is where you can set the last selected as follow me;
                 this.onLocationClick();
                 this.refs.child.changeIndex(null);
             } else {
-                // // store.set(SELECTED, location);
+                // here is where you can set the last selected;
                 this.props.fetchWeather(value.value.lat, value.value.long, this.state.unit);
                 this.props.getCity(null, null, value.key);
                 this.refs.child.changeIndex(value.key);

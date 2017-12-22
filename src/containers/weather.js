@@ -14,6 +14,32 @@ class Weather extends Component {
         this.findLocation();
     }
 
+    renderIcon(icon) {
+        switch (icon) {
+            case "clear-day":
+                return "../../res/ic_clear_day.png";
+            case "clear-night":
+                return "../../res/ic_clear_night.png";
+            case "rain":
+                return "../../res/ic_rainy_weather.png";
+            case "snow":
+                return "../../res/ic_snow_weather.png";
+            case "sleet":
+                return "../../res/ic_rain_snow.png";
+            case "wind":
+                return "../../res/ic_windy_weather.png";
+            case "fog":
+                return "../../res/ic_haze_weather.png";
+            case "cloudy":
+                return "../../res/ic_cloudy_weather.png";
+            case "partly-cloudy-day":
+                return "../../res/ic_partly_cloudy.png";
+            case "partly-cloudy-night":
+                return "../../res/ic_partly_cloudy_night.png";
+
+        }
+    }
+
     findLocation() {
         if ("geolocation" in navigator) {
             let self = this;
@@ -41,9 +67,9 @@ class Weather extends Component {
                             lat={this.state.lat} long={this.state.long}
                             city={this.props.city} weather={this.props.weather}
                             onLocationClick={this.findLocation}/>
-                    <Current city={this.props.city} weather={this.props.weather}/>
-                    <Daily weather={this.props.weather}/>
-                    <Hourly weather={this.props.weather}/>
+                    <Current city={this.props.city} weather={this.props.weather} renderIcon={this.renderIcon}/>
+                    <Daily weather={this.props.weather} renderIcon={this.renderIcon}/>
+                    <Hourly weather={this.props.weather} renderIcon={this.renderIcon}/>
                 </div>
             );
         }

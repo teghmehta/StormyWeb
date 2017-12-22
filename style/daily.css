@@ -1,0 +1,60 @@
+.daily-item {
+    width: 25%;
+    height: 320px;
+    margin: 2px;
+    display: inline-grid;
+    background-color: #d8d8d8;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.daily-icon {
+    width: 50px;
+    display: inline-block;
+    float: left;
+    padding-left: 20px;
+}
+
+.daily-temp {
+    float: right;
+    display: inline-block;
+    margin-top: 13px;
+    padding-right: 20px;
+}
+
+.daily-condition {
+    display: inline-block;
+    padding: 0 10px;
+    width: 90%;
+    height: 50px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    font-weight: 100;
+    margin-top: 10px;
+}
+
+.daily-day {
+    margin-bottom: 5px;
+}
+
+.daily-detail-container {
+    display: table;
+}
+
+.daily-detail-item {
+    display: inline-flex;
+}
+
+.daily-detail-label {
+    margin: 0 6px;
+    font-size: 1em;
+    float: left;
+    font-weight: 300;
+}
+.daily-detail-value {
+    margin: 0 6px;
+    font-size: 1em;
+    float: right;
+    font-weight: 300;
+}
+
