@@ -3,14 +3,18 @@ import React, {Component} from 'react';
 export default class Daily extends Component {
     constructor(props) {
         super(props);
-        this.renderWeather= this.renderWeather.bind(this);
+        this.renderWeather = this.renderWeather.bind(this);
     }
 
     render() {
         return (
             <div className="shadow-container">
                 <h1 className="title">Daily</h1>
-                {this.props.weather.daily.data.map(this.renderWeather)}
+                <div className="daily-container">
+                    {this.props.weather.daily.data.map(this.renderWeather)}
+                </div>
+                <button className="previous round arrow">&#8249;</button>
+                <button className="next round arrow">&#8250;</button>
             </div>
         );
     }
@@ -36,7 +40,7 @@ export default class Daily extends Component {
 
         return (
             <div key={dailyData.time * (index + 1)} className="daily-item">
-                <h2 className="daily-day">{this.getDate(dailyData.time)} TOD</h2>
+                <h2 className="daily-day">{this.getDate(dailyData.time)}</h2>
                 <h3 className="daily-condition">{dailyData.summary}</h3>
                 <div className="daily-temp-icon">
                     <img className="daily-icon" src={this.props.renderIcon(dailyData.icon)}/>
@@ -44,6 +48,7 @@ export default class Daily extends Component {
                 </div>
                 <div className="daily-detail-container">
                     <div className="daily-detail-item">
+                        <h3 className="daily-detail-label">Wind Speed:</h3>
                         <h3 className="daily-detail-label">Wind Speed:</h3>
                         <h3 className="daily-detail-value">{Math.round(dailyData.windSpeed) + windUnit}</h3>
                     </div>

@@ -10,14 +10,15 @@ export default class Current extends Component {
         let locality = city.results[0].address_components[3].short_name;
         let state = city.results[1].address_components[2].short_name;
         let country = city.results[1].address_components[3].short_name;
-        let cityToReturn = locality+", " + state;
-
+        let cityToReturn
         if (locality === undefined) {
             locality = city.results[1].address_components[0].long_name;
             if (locality === undefined) {
                 cityToReturn = "Somewhere in " + state + ", " + country;
             }
         }
+        cityToReturn = locality+", " + state;
+
         return cityToReturn;
     }
 
