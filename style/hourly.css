@@ -1,8 +1,40 @@
 .hourly-item {
-    width: 12%;
-    height: 150px;
+    width: 18%;
     margin: 2px;
+    height: 170px;
     display: inline-block;
     background-color: #d8d8d8;
     border-radius: 10px;
+    white-space: normal;
+    text-align: center;
+}
+
+.hourly-container {
+    white-space: nowrap;
+    overflow: auto;
+    margin: 10px;
+    height: 200px;
+}
+
+.hourly-icon {
+    width: 30px;
+}
+
+.hourly-condition {
+    font-weight: 300;
+    font-size: 1.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 3px;
+}
+
+.hourly-temperature{
+    font-size: 1.2em;
+    margin-bottom: 3px;
+}
+
+.hourly-hour {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-top: 3px;
 }

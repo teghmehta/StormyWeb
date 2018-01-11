@@ -2,10 +2,11 @@
     width: 25%;
     height: 320px;
     margin: 2px;
-    display: inline-grid;
+    display: inline-block;
     background-color: #d8d8d8;
     border-radius: 12px;
     text-align: center;
+    white-space: normal;
 }
 
 .daily-icon {
@@ -22,14 +23,19 @@
     padding-right: 20px;
 }
 
-.daily-temp-icon {
+.daily-container {
+    white-space: nowrap;
+    overflow: auto;
+    margin: 10px;
 }
 
 .daily-condition {
     display: inline-block;
     padding: 0 10px;
     width: 90%;
-    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 60px;
     margin-bottom: 10px;
     font-size: 1.0em;
     font-weight: 100;
@@ -41,7 +47,13 @@
 }
 
 .daily-detail-container {
-    display: table;
+    display: grid;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    width: 90%;
+    white-space: nowrap;
+
 }
 
 .daily-detail-item {

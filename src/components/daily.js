@@ -6,6 +6,13 @@ export default class Daily extends Component {
         this.renderWeather = this.renderWeather.bind(this);
     }
 
+    scrollLeft() {
+    }
+
+    scrollRight() {
+
+    }
+
     render() {
         return (
             <div className="shadow-container">
@@ -13,30 +20,31 @@ export default class Daily extends Component {
                 <div className="daily-container">
                     {this.props.weather.daily.data.map(this.renderWeather)}
                 </div>
-                <button className="previous round arrow">&#8249;</button>
-                <button className="next round arrow">&#8250;</button>
+                {/*<button onClick={this.scrollLeft} className="previous round arrow">&#8249;</button>*/}
+                {/*<button onClick={this.scrollRight} className="next round arrow">&#8250;</button>*/}
             </div>
         );
     }
 
-    getDate(timestamp) {
-        let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        let date = new Date(timestamp*1000);
-        return days[date.getDay()];
-    }
-
-    renderWeather(dailyData, index) {
-        let unit = this.props.weather.flags.units;
-        let unitText = " °C ";
-        let windUnit = " km/h";
-
-        if (unit === "us") {
-            windUnit = " mph";
-            unitText = " °F ";
-        } else {
-            windUnit = " km/h";
-            unitText =  " °C ";
+        getDate(timestamp) {
+            let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            let date = new Date(timestamp*1000);
+            return days[date.getDay()];
         }
+
+        renderWeather(dailyData, index) {
+            let unit = this.props.weather.flags.units;
+            let unitText = " °C ";
+            let windUnit = " km/h";
+
+            if (unit === "us") {
+                windUnit = " mph";
+                unitText = " °F ";
+            } else {
+                windUnit = " km/h";
+                unitText =  " °C ";
+            }
+
 
         return (
             <div key={dailyData.time * (index + 1)} className="daily-item">
@@ -48,7 +56,6 @@ export default class Daily extends Component {
                 </div>
                 <div className="daily-detail-container">
                     <div className="daily-detail-item">
-                        <h3 className="daily-detail-label">Wind Speed:</h3>
                         <h3 className="daily-detail-label">Wind Speed:</h3>
                         <h3 className="daily-detail-value">{Math.round(dailyData.windSpeed) + windUnit}</h3>
                     </div>
