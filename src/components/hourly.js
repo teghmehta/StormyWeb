@@ -12,8 +12,14 @@ export default class Hourly extends Component {
         let hour = ""
         if (time > 12) {
             hour = time - 12 + " pm"
+        } else if (time === 12 || time === 0) {
+            if (time == 0) {
+                hour = 12 + " am"
+            } else {
+                hour = 12 + " pm"
+            }
         } else {
-            hour = time + " am"
+            hour = time + " am";
         }
         return hour;
     }

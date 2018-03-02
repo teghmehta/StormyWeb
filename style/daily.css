@@ -3,7 +3,7 @@
     height: 320px;
     margin: 2px;
     display: inline-block;
-    background-color: #d8d8d8;
+    background-color: #b0bec5;
     border-radius: 12px;
     text-align: center;
     white-space: normal;
@@ -27,6 +27,7 @@
     white-space: nowrap;
     overflow: auto;
     margin: 10px;
+    padding-bottom: 30px;
 }
 
 .daily-condition {
@@ -49,10 +50,16 @@
 .daily-detail-container {
     display: grid;
     position: relative;
-    top: 5px;
-    left: 5px;
-    width: 90%;
+    /* top: 5px; */
+    /* left: 5px; */
+    width: 100%;
+    height: 35%;
+    padding-top: 7px;
     white-space: nowrap;
+    background: #cfd8dc;
+    /* border-radius: 10px; */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
 }
 
@@ -71,33 +78,4 @@
     font-size: 1em;
     float: right;
     font-weight: 300;
-}
-
-
-/*****Buttons*****/
-.arrow {
-    text-decoration: none;
-    display: inline-block;
-    height: 50px;
-    width: 50px;
-    font-size: 2em;
-}
-
-.arrow:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.previous {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-.next {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.round {
-    border-radius: 50%;
 }
