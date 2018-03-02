@@ -102,11 +102,11 @@ class Header extends Component {
             <header className="header">
                 <div className='content'>
 
-                    <LocationDropDown ref="child" removeStore={this.removeStore} onSelectLocation={this.onSelectLocation} getStore={this.getStore()} locations={this.getStore()} className="location-drop"/>
 
                     <img className="stormy-logo" src="../../res/stormy_icon.png "/>
                     <h1 className="stormy-title">Stormy Web</h1>
 
+                    <LocationDropDown ref="child" removeStore={this.removeStore} onSelectLocation={this.onSelectLocation} getStore={this.getStore()} locations={this.getStore()} className="location-drop"/>
                     <SearchBar createStore={this.createStore} city={this.props.city} unit={this.state.unit} class="search-container"/>
                     <button onClick={this.onLocationClick} className="location-div">
                         <img className="place-icon" src="../../res/ic_place_white_48dp.png"/>
@@ -116,10 +116,10 @@ class Header extends Component {
                         <div className="switch-field">
                             <input type="radio" id="switch_left" name="switch_2" value="ca" defaultChecked
                                    onChange={this.onCel}/>
-                            <label htmlFor="switch_left">°C</label>
+                            <label className="switch-field-left" htmlFor="switch_left">°C</label>
                             <input type="radio" id="switch_right" name="switch_2" value="us"
                                    onChange={this.onFah}/>
-                            <label htmlFor="switch_right">°F</label>
+                            <label className="switch-field-right" htmlFor="switch_right">°F</label>
                         </div>
                     </form>
                 </div>

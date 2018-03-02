@@ -16,11 +16,12 @@
     background: none;
     border: none;
     width: 200px;
+    padding-left: 57px;
 }
 .stormy-logo {
     width: 60px;
     float: left;
-    padding: 2px 20px 10px 270px;
+    padding: 2px 20px 10px 100px;
 }
 
 .stormy-title {
@@ -88,4 +89,65 @@
     margin-top: 8px;
     color:white;
     background: #ffc107;
+}
+
+/*Media */
+@media screen and (max-width: 1380px) {
+    .stormy-logo {
+        padding-left: 90px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .stormy-logo {
+        padding-left: 40px;
+        width: 50px;
+    }
+
+    .location-drop {
+        width: 150px;
+    }
+
+    .location-div {
+        height: auto;
+        margin-top: 17px;
+    }
+
+    .stormy-title {
+        font-size: 1.7em;
+    }
+
+    .autocomplete {
+        width: 200px;
+    }
+
+    .place-icon {
+        width: 25px;
+    }
+
+}
+@media screen and (max-width: 1000px) {
+    .stormy-title {
+        display: none
+    }
+
+    .location-drop {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .location-drop {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .stormy-logo {
+        padding-left: 20px;
+    }
+
+    .switch-field-left, .switch-field-right {
+        padding: 5px;
+    }
 }

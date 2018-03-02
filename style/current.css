@@ -86,3 +86,37 @@ table td, table th {
     border-left: 1px solid #d8d8d8;
 }
 table td:first-child, table th:first-child { border-left: none;}
+
+
+
+
+
+
+
+@media screen and (max-width: 800px) {
+    .current-city{
+        font-size: 35px;
+    }
+
+    .current-temp {
+        font-size: 100px;
+    }
+
+    .current-weather-icon {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .current-city{
+        font-size: 25px;
+    }
+
+    .current-temp {
+        font-size: 100px;
+    }
+
+    .current-weather-icon {
+        width: 100px;
+    }
+}

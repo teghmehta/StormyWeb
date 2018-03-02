@@ -14,3 +14,41 @@
 
 
 }
+
+/** MEDIA  */
+
+@media screen and (max-width: 1764px) {
+    .shadow-container {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .shadow-container {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .shadow-container {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .shadow-container {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .shadow-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .shadow-container {
+        width: 95%;
+    }
+}
