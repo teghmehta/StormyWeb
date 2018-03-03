@@ -48,14 +48,14 @@ export default class LocationDropDown extends Component {
 
     render() {
         const itemStyle = {
-            color: '#ffc107'
+            color: '#ffc107',
         };
 
         const style = {
             color: 'white',
         };
         const menuStyle = {
-            width: "300px"
+            width: "300px",
         };
 
         return (

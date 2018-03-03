@@ -119,4 +119,32 @@ table td:first-child, table th:first-child { border-left: none;}
     .current-weather-icon {
         width: 100px;
     }
+
+
+}
+
+@media screen and (max-width: 500px) {
+    .current-city{
+        font-size: 22px;
+    }
+
+    .current-temp {
+        font-size: 100px;
+    }
+
+    .current-weather-icon {
+        width: 100px;
+    }
+
+
+}
+
+@media screen and (max-width: 450px) {
+    th, td {
+        font-size: 0.9em;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+
 }

@@ -108,7 +108,7 @@ class Header extends Component {
 
                     <LocationDropDown ref="child" removeStore={this.removeStore} onSelectLocation={this.onSelectLocation} getStore={this.getStore()} locations={this.getStore()} className="location-drop"/>
                     <SearchBar createStore={this.createStore} city={this.props.city} unit={this.state.unit} class="search-container"/>
-                    <button onClick={this.onLocationClick} className="location-div">
+                    <button onClick={this.onLocationClick} className="location-button">
                         <img className="place-icon" src="../../res/ic_place_white_48dp.png"/>
                     </button>
 

@@ -11,8 +11,10 @@
 
 .title {
     text-align: center;
+}
 
-
+body {
+    min-width: 400px;
 }
 
 /** MEDIA  */

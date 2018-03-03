@@ -79,3 +79,44 @@
     float: right;
     font-weight: 300;
 }
+
+
+@media screen and (max-width: 800px) {
+    .daily-item {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .daily-item {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 570px) {
+
+    .daily-detail-label, .daily-detail-value {
+        font-size: 0.9em;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .daily-item {
+        width: 39%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+
+    .daily-item {
+        width: 40%;
+    }
+
+    .daily-detail-label, .daily-detail-value {
+        font-size: 0.83em;
+    }
+
+}

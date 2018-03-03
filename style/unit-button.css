@@ -56,3 +56,29 @@
 .switch-field label:last-of-type {
     border-radius: 0 4px 4px 0;
 }
+
+@media screen and (max-width: 708px) {
+    .switch-field label {
+         padding: 2px;
+     }
+
+    .switch-field {
+        padding-top: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .switch-field {
+        padding-top: 10px;
+        float: left;
+    }
+}
+
+@media screen and (max-width: 485px) {
+
+    .switch-field label {
+        width: 40px;
+    }
+}
+
