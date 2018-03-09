@@ -119,8 +119,6 @@ table td:first-child, table th:first-child { border-left: none;}
     .current-weather-icon {
         width: 100px;
     }
-
-
 }
 
 @media screen and (max-width: 500px) {
@@ -145,6 +143,63 @@ table td:first-child, table th:first-child { border-left: none;}
         padding-right: 0px;
         padding-left: 0px;
     }
+}
 
+@media screen and (max-width: 420px) {
+    .current-city{
+        font-size: 20px;
+        }
 
+    .current-temp {
+        font-size: 80px;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .current-city{
+        font-size: 22px;
+        display: inline-block;
+        float: left;
+    }
+
+    .current-temp {
+        font-size: 125px;
+    }
+
+    .temp-container {
+        float: right;
+        padding-top: 0;
+    }
+
+    th, td {
+        font-size: 1em;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .current-details {
+        margin-top: 20px;
+        position: unset;
+        margin-bottom: 10px;
+    }
+
+    .current-container {
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    th, td {
+        font-size: 0.95em;
+        padding-right: 7px;
+        padding-left: 7px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    th, td {
+        font-size: 0.9em;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
 }

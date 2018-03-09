@@ -14,7 +14,7 @@
 }
 
 body {
-    min-width: 400px;
+    min-width: 300px;
 }
 
 /** MEDIA  */
@@ -52,5 +52,11 @@ body {
 @media screen and (max-width: 1000px) {
     .shadow-container {
         width: 95%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .shadow-container {
+        width: 100%;
     }
 }

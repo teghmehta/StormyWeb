@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import DropDownMenu from 'material-ui/DropDownMenu';
+import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import MapsPlace from 'material-ui/svg-icons/navigation/more-vert';
 import {SELECTED} from '../containers/header';
 
 export default class LocationDropDown extends Component {
@@ -13,6 +16,25 @@ export default class LocationDropDown extends Component {
     }
 
     handleChange = (event, index) =>  this.setState({index});
+
+    updateDimensions() {
+        if(window.innerWidth < 500) {
+            this.setState({ width: 450, height: 102 });
+        } else {
+            let update_width  = window.innerWidth-100;
+            let update_height = Math.round(update_width/4.4);
+            this.setState({ width: update_width, height: update_height });
+        }
+    }
+
+    componentDidMount() {
+        this.updateDimensions();
+        window.addEventListener("resize", this.updateDimensions.bind(this));
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions.bind(this));
+    }
 
 
     renderItems(location, index) {
@@ -55,18 +77,29 @@ export default class LocationDropDown extends Component {
             color: 'white',
         };
         const menuStyle = {
-            width: "300px",
+            width: '400px',
         };
+        if (window.innerWidth <= 399) {
 
+            const menuStyle = {
+                width: '250px',
+            };
+        }
         return (
-            <DropDownMenu autoWidth={false}
-                selectedMenuItemStyle={itemStyle} labelStyle={style}
-                          menuStyle={menuStyle}
-                className="location-drop" value={this.state.index} onChange={this.handleChange} openImmediately={false}>
-
-                <MenuItem key={0} value={0} onClick={() => this.props.onSelectLocation(null)} primaryText="Follow Me"><img className="drop-place-icon" src="../../res/ic_place_white_48dp.png"/></MenuItem>
+            <IconMenu
+                className="location-icon-menu"
+                iconButtonElement={<IconButton><MapsPlace /></IconButton>}
+                anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+                targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                selectedMenuItemStyle={itemStyle}
+                menuStyle={menuStyle}
+                maxHeight={272}
+            >
+                <MenuItem key={0} value={0} onClick={() => this.props.onSelectLocation(null)}
+                          primaryText="Follow Me"><img className="drop-place-icon"
+                                                       src="../../res/ic_place_white_48dp.png"/></MenuItem>
                 {this.props.locations.map(this.renderItems)}
-            </DropDownMenu>
+            </IconMenu>
         );
     }
 }

@@ -37,3 +37,31 @@
     font-weight: 300;
     margin-top: 3px;
 }
+
+@media screen  and (max-width: 800px){
+    .hourly-item {
+        width: 25%;
+    }
+}
+
+@media screen  and (max-width: 600px){
+    .hourly-item {
+        width: 30%;
+    }
+}
+@media screen  and (max-width: 500px){
+    .hourly-item {
+        width: 35%;
+    }
+}
+@media screen  and (max-width: 400px){
+    .hourly-item {
+        width: 40%;
+    }
+}
+
+@media screen  and (max-width: 360px){
+    .hourly-item {
+        width: 43%;
+    }
+}

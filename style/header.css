@@ -11,6 +11,16 @@
     box-shadow:         2px 3px 3px 0px #ccc;
 }
 
+.delete-button {
+    float: right;
+}
+
+.location-icon-menu {
+    padding-top: 10px;
+    margin-left: 70px;;
+    margin-right: 20px;
+}
+
 .location-drop {
     float: left;
     background: none;
@@ -38,7 +48,7 @@
     float: right;
     margin: 21px 23px 7px 21px;
     height: 25px;
-    width: 300px;
+    width: 30%;
     padding-left: 10px;
     border-radius: 20px;
     border: none;
@@ -64,13 +74,19 @@
     display: inline-block;
     color: white;
     border-radius: 20px;
-    background-color: #ffc107;
+    border-color: transparent;
+    background-color: transparent;
     height: 45px;
-    float: right;
+    float: left;
     padding: 0;
     margin-top: 10px;
+    margin-right: 5px;
 }
 
+.location-icon-menu {
+    float: left ;
+    -webkit-filter: invert(100%);
+}
 /***********************************************
             /** Drop Down //*
 ***********************************************/
@@ -96,10 +112,15 @@
     .stormy-logo {
         padding-left: 90px;
     }
+
+    .autocomplete {
+        width: 20%;
+    }
 }
 
 @media screen and (max-width: 1250px) {
     .stormy-logo {
+        margin-top: 6px;
         padding-left: 40px;
         width: 50px;
     }
@@ -115,10 +136,6 @@
 
     .stormy-title {
         font-size: 1.7em;
-    }
-
-    .autocomplete {
-        width: 200px;
     }
 
     .place-icon {
@@ -152,11 +169,28 @@
     }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 740px) {
+    .content {
+        height: 120px;
+    }
+
+    .switch-field {
+        float: left;
+    }
+
+    .location-icon-menu {
+        margin: 5px;
+        padding-top: 5px;
+    }
 
     .autocomplete {
-        width: 150px;
+        width: 92%;
+        margin-right: 20px;
+        margin-top: 10px;
     }
+}
+
+@media screen and (max-width: 760px) {
 
     .location-drop {
         padding-left: 5px;
@@ -169,19 +203,31 @@
 
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 565px) {
     .autocomplete {
-        width: 250px;
-    }
-
-    .content {
-        height: 125px;
+        margin-right: 10px;
     }
 }
 
-@media screen and (max-width: 565px) {
-    .autocomplete {
-        width: 200px;
+@media screen and (max-width: 399px) {
+    .content {
+        height: 110px;
+    }
+
+    .stormy-logo {
+        width: 40px;
+        padding-bottom: 0;
+        padding-top: 5px;
+    }
+
+    .location-button {
+        margin-left: 0;
+        margin-top: 12px;
+    }
+
+    .location-icon-menu {
+        margin-top: 7px;
+        padding-top: 0;
     }
 }
 
