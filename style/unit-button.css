@@ -4,6 +4,12 @@
     display: inline-block;
 }
 
+@media screen and (max-width: 420px) {
+    .switch-field {
+        padding-right: 10px;
+    }
+}
+
 .switch-title {
     margin-bottom: 6px;
 }
@@ -57,14 +63,21 @@
     border-radius: 0 4px 4px 0;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 708px) {
     .switch-field label {
-        padding-left: 2px;
-        padding-right: 2px;
+         padding: 2px;
      }
 
     .switch-field {
         padding-top: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .switch-field {
+        padding-top: 10px;
+        float: left;
     }
 }
 
@@ -75,9 +88,3 @@
     }
 }
 
-@media screen and (max-width: 430px) {
-
-    .switch-field  {
-        padding-right: 10px;
-    }
-}
