@@ -7,7 +7,7 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(lat, long, unit) {
     const url = ROOT_URL + API_KEY + lat + "," + long + UNITS + unit;
-    const request = axios.get(url, {crossdomain: true});
+    const request = axios.get(url);
     return{
         type: FETCH_WEATHER,
         payload: request
