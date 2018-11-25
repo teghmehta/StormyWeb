@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static(__dirname));
 app.use(function(req, res, next) {
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'https://api.darksky.net');
+    res.setHeader('Access-Control-Allow-Origin', 'https://api.darksky.net/forecast/9bb1e47fd64a2be700f417b9a7bf52e4/43.6942156,-79.25638049999999?units=auto');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
