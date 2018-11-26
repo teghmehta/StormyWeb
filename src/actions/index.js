@@ -7,7 +7,12 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(lat, long, unit) {
     const url = ROOT_URL + API_KEY + lat + "," + long + UNITS + unit;
-    const request = axios.get(url);
+    const request = axios.get(url, {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        },
+    });
     return{
         type: FETCH_WEATHER,
         payload: request
